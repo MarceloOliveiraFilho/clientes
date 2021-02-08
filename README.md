@@ -2,7 +2,7 @@
 
  URL do Swagger na AWS: http://ec2-52-14-1-68.us-east-2.compute.amazonaws.com:8080/swagger-ui.html
 
- Neste repositório se encontra um REST API de Clientes que permite salvar, alterar 
+ Neste repositório se encontra um REST API de Clientes que permite salvar, alterar excluir e listar
 
  Antes mesmo de começar é necessário ter instalado no seu ambiente:
  
