@@ -13,6 +13,9 @@
  # Assim como solicitado segue o link do Postman das requisições.
  
 https://www.getpostman.com/collections/e0b06c479c854b94eb61
+detalhe:
+ Foi feito um desafio para hospedar em algum lugar e eu fiz isso com a amazon.
+ Se quiser apenas usar o link tricar de localhost na colection para ec2-52-14-1-68.us-east-2.compute.amazonaws.com:8080/cliente.
 
 # Primeiro passo
 
