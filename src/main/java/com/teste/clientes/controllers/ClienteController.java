@@ -5,6 +5,9 @@ import com.teste.clientes.entidades.Cliente;
 import com.teste.clientes.security.interfaces.ClienteService;
 import com.teste.clientes.uteis.EnvelopeRespostaDTO;
 import com.teste.clientes.uteis.ResponseEntityFactory;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,6 +36,12 @@ public class ClienteController {
         return ResponseEntityFactory.ok(version);
     }
 
+    @ApiOperation(value = "Retorna uma lista de clientes")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna a lista de clientes"),
+            @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
     @ResponseBody
     @RequestMapping(value = "/clientes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EnvelopeRespostaDTO> listaClientes() {
@@ -95,7 +104,7 @@ public class ClienteController {
 
     @ResponseBody
     @RequestMapping(value = "/cliente", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EnvelopeRespostaDTO> incluirCliente(@RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<EnvelopeRespostaDTO> insertCliente(@RequestBody ClienteDTO clienteDTO) {
         try {
             Cliente cliente = new Cliente(clienteDTO);
             return ResponseEntityFactory.ok(clienteService.insertCliente(cliente));
@@ -106,7 +115,7 @@ public class ClienteController {
 
     @ResponseBody
     @RequestMapping(value = "/cliente/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EnvelopeRespostaDTO> atualizarCliente(@PathVariable long id) {
+    public ResponseEntity<EnvelopeRespostaDTO> deleteCliente(@PathVariable long id) {
         try {
             clienteService.deleteCliente(id);
             return ResponseEntityFactory.ok("Cliente excluido com sucesso.");
@@ -128,7 +137,7 @@ public class ClienteController {
 
     @ResponseBody
     @RequestMapping(value = "/cliente/paginado", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<EnvelopeRespostaDTO> findByIdade(@RequestParam Integer size,@RequestParam Integer page) {
+    public ResponseEntity<EnvelopeRespostaDTO> findAllPaginated(@RequestParam Integer size,@RequestParam Integer page) {
         try {
             return ResponseEntityFactory.ok(clienteService.findAllPaginated(page,size));
         } catch (ServiceException e) {

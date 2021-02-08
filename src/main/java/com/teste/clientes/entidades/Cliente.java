@@ -1,6 +1,7 @@
 package com.teste.clientes.entidades;
 
 import com.teste.clientes.dtos.ClienteDTO;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,14 +11,19 @@ public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @ApiModelProperty(value = "Código da cliente")
     private Long id;
 
+    @ApiModelProperty(value = "Nome do cliente")
     private String nome;
 
+    @ApiModelProperty(value = "Endereço do cliente")
     private String endereco;
 
+    @ApiModelProperty(value = "CPF do cliente")
     private String cpf;
 
+    @ApiModelProperty(value = "Idade do cliente")
     private Long idade;
 
     public Cliente(){
@@ -25,7 +31,6 @@ public class Cliente implements Serializable {
     }
 
     public Cliente(ClienteDTO clienteDTO) {
-        this.id = clienteDTO.getId();
         this.nome = clienteDTO.getNome();
         this.endereco = clienteDTO.getEndereco();
         this.cpf = clienteDTO.getCpf();
