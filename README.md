@@ -16,11 +16,11 @@ https://www.getpostman.com/collections/e0b06c479c854b94eb61
 
 # Primeiro passo
 
- O primeiro passo para subir seu projeto é ultilizar do docker para ter seu banco de dados. Já está tudo preparado no projeto com o init.sql adicionando um aluno na inicialização.
+ O primeiro passo para subir seu projeto é utilizar do Docker para ter seu banco de dados. Já está tudo preparado no projeto com o init.sql adicionando um aluno na inicialização.
  
- Entre com a linha de comando na pasta do projeto com o docker no ar e digite: docker-compose up postgres.
+ Entre com a linha de comando na pasta do projeto com o Docker no ar e digite: docker-compose up postgres.
  
- Com este comando vai iniciar seu banco de dados Postgres(escolhi Postgres pois é o que eu tenho maior dominio e familiaridade.) e estará pronto para usar o projeto.
+ Com este comando vai iniciar seu banco de dados Postgres(escolhi Postgres, pois é o que eu tenho maior domínio e familiaridade.) e estará pronto para usar o projeto.
  
 # Segundo passo
 
@@ -28,8 +28,27 @@ https://www.getpostman.com/collections/e0b06c479c854b94eb61
  
   mvnw spring-boot:run
  
-  Aconselho ultilizar o InteliJ para subir o ambiente pois ele facilita muita coisa.
+  Aconselho ultilizar o InteliJ para subir o ambiente, pois ele facilita muita coisa.
 
 # Ultimo passo
 
- Agora é só criar editar excluir os clientes a vontade usando o postman :)
+ Agora é só editar, excluir ou consultar os clientes a vontade usando o postman :)
+
+é possível fazer as seguintes requisições:
+
+
+(POST) Inserir cliente
+
+(GET) Pesquisar todos os clientes
+
+(DEL) Delete cliente por ID
+
+(PATCH) Atualizar cliente
+
+(GET) Pesquisar por nome
+
+(GET) Pesquisar por idade
+
+(GET) Pesquisar por cpf
+
+(GET) Consulta de clientes paginada
